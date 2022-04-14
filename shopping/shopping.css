@@ -1,0 +1,72 @@
+.shopping-catalog {
+    padding: 0 32px 0 32px;
+    max-width: 1504px;
+}
+
+.goods__title {
+    font-size: 36px;
+    line-height: 48px;
+    margin: 8px 0 20px 0;
+}
+
+.goods__list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0 -16px;
+}
+
+.goods__item {
+    width: calc(100%/12*1.714 - 32px);
+    margin: 0 16px 32px;
+}
+
+.goods-card__img {
+    height: 208px;
+    background-size: cover;
+    position: relative;
+}
+
+.goods-card__price {
+    display: flex;
+    align-items: baseline;
+}
+
+.goods-card__price-now {
+    font-size: 18px;
+    line-height: 24px;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 700;
+}
+
+.goods-card__price-last {
+    font-size: 14px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #999;
+}
+
+.goods-card__description {
+    font-size: 14px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #999;
+}
+
+.goods-card__discount {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 5px;
+    padding: 0 3px;
+    color: #cb11ab;
+    background-color: #fdeef9;
+    border-radius: 20px;
+    margin: 0;
+}
