@@ -6,12 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./header/header.css">
+    <link rel="stylesheet" href="./shopping/shopping.css">
+    <link rel="stylesheet" href="./shopping/popup.css">
     <link rel="icon" href="https://www.wildberries.ru/favicon.ico" type="image/vnd.microsoft.icon">
-    <title>Wildberries — Интернет-магазин</title>
+    <title>Wildberries – Интернет-магазин модной одежды и обуви</title>
 </head>
 <body>
-    <section class="header"></section>
+    <!-- Шапка -->
+    <section class="header">
+        <div class="header__container">
+            <div class="header__logo"></div>
+            <div class="header__search-catalog">
+                <input type="search" class="search-catalog__input" id="" placeholder="Я ищу...">
+            </div>
+            <div class="header__shopping-cart">
+                <div class="shopping-cart__img"></div>
+                <span class="shopping-cart__text">Корзина</span>
+            </div>
+        </div>
+    </section>
+<!-- Слайдер -->
     <section class="slider"></section>
-    <section class="shopping-catalog"></section>
+<!-- Каталог товаров -->
+    <section class="shopping-catalog">
+        <h2 class="goods__title">Хиты продаж</h2>
+        <ul class="goods__list"></ul>
+        <div class="modals"></div>
+    </section>
+
+<script type="module" src="/shopping/shopping.js"></script>
 </body>
+
 </html>
