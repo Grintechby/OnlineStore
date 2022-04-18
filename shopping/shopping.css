@@ -12,6 +12,7 @@
 .goods__list {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0 -16px;
 }
@@ -25,6 +26,7 @@
     height: 208px;
     background-size: cover;
     position: relative;
+    transition: .4s ease-in;
 }
 
 .goods-card__price {
@@ -69,4 +71,33 @@
     background-color: #fdeef9;
     border-radius: 20px;
     margin: 0;
+}
+
+.goods-card__quick-view {
+    font-size: 12px;
+    line-height: 16px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    padding: 10px 11px;
+    border: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+    z-index: 5;
+    transition: .3s; 
+    opacity: 0;
+    overflow: hidden;
+}
+
+.goods-card__quick-view:hover {
+    background-color: #fff;
+}
+
+.goods-card__img:hover .goods-card__quick-view {
+    opacity: 1;
+    overflow: visible;
 }

@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./header/header.css">
     <link rel="stylesheet" href="./shopping/shopping.css">
+    <link rel="stylesheet" href="./shopping/popup.css">
     <link rel="icon" href="https://www.wildberries.ru/favicon.ico" type="image/vnd.microsoft.icon">
     <title>Wildberries – Интернет-магазин модной одежды и обуви</title>
 </head>
 <body>
+    <!-- Шапка -->
     <section class="header">
         <div class="header__container">
             <div class="header__logo"></div>
@@ -24,30 +26,16 @@
             </div>
         </div>
     </section>
+<!-- Слайдер -->
     <section class="slider"></section>
+<!-- Каталог товаров -->
     <section class="shopping-catalog">
         <h2 class="goods__title">Хиты продаж</h2>
-        <ul class="goods__list">
-            <!-- <li class="goods__item">
-                <div class="goods-card__img">
-                    <div class="goods-card__discount">
-                        -<span>30</span>%
-                    </div>
-                </div>
-                <div class="goods-card__info">
-                    <div class="goods-card__price">
-                        <span class="goods-card__price-now">1&nbsp;953&nbsp;₽</span>
-                        <del class="goods-card__price-last">2&nbsp;790&nbsp;₽</del>
-                    </div>
-                    <div class="goods-card__description">
-                        <span>Honor</span>
-                        /
-                        <span>Фитнес-браслет Band 5</span>
-                    </div>
-                </div>
-            </li> -->
-        </ul>
+        <ul class="goods__list"></ul>
+        <div class="modals"></div>
     </section>
+
 <script type="module" src="/shopping/shopping.js"></script>
 </body>
+
 </html>
