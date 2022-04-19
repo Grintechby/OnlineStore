@@ -27,6 +27,18 @@
     background-size: cover;
     position: relative;
     transition: .4s ease-in;
+    border-radius: 8px;
+}
+
+.goods-card__img::before {
+    content: '';
+    background-color: rgba(41,43,83,.03);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
 }
 
 .goods-card__price {
@@ -73,6 +85,29 @@
     margin: 0;
 }
 
+.goods-card__basket-add {
+    position: absolute;
+    background-color: rgba(203, 17, 172, 0.7);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    border: none;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+    margin: 3px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.goods-card__basket-add:hover {
+    background-color: #cb11ab;
+    color: #fff;
+}
+
+
 .goods-card__quick-view {
     font-size: 12px;
     line-height: 16px;
@@ -100,4 +135,8 @@
 .goods-card__img:hover .goods-card__quick-view {
     opacity: 1;
     overflow: visible;
+}
+
+.hide {
+    display: none;
 }
