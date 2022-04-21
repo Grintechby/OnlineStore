@@ -12,7 +12,7 @@ function displayCards() {
                     <div class="goods-card__discount">
                         <span>${item.discount}</span>
                     </div>
-                    <button class="goods-card__basket-add">+</button>
+                    <button id="addbtn_${item.id}" class="goods-card__basket-add">+</button>
                     <button id="btn_${item.id}" class="goods-card__quick-view">Быстрый просмотр</button>
                 </div>
                 <div class="goods-card__info">
@@ -68,11 +68,11 @@ const popupClose = document.getElementsByClassName('popup__close');
 // Закрытие модального окна
 modals.addEventListener('click', (e) => {
     let closeId = e.target.id.replace(/close_/g, "");
-    let bodyId = e.target.id.replace(/body_/g,"");
+    let bodyId = e.target.id.replace(/body_/g, "");
 
-    if (e.target == popupBody[bodyId -1]) {
+    if (e.target == popupBody[bodyId - 1]) {
         popup[bodyId - 1].style.display = 'none';
-    }else if (e.target == popupClose[closeId -1]) {
+    } else if (e.target == popupClose[closeId - 1]) {
         popup[closeId - 1].style.display = 'none';
     }
     e.preventDefault();
@@ -83,7 +83,7 @@ goodsList.addEventListener('click', (e) => {
     let buttn = document.getElementsByClassName('goods-card__quick-view');
     let currentTargetId = e.target.id.replace(/btn_/g, "");
     if (e.target == buttn[currentTargetId - 1]) {
-        popup[currentTargetId-1].style.display = 'block';
+        popup[currentTargetId - 1].style.display = 'block';
     }
 })
 
@@ -91,19 +91,14 @@ goodsList.addEventListener('click', (e) => {
 let catalog = [];
 
 fetch('https://6257ff20e4e0b7314284d524.mockapi.io/wildberries')
-.then((responce) => {
-    return responce.json();
-})
-.then((body) => {
-    catalog = body;
-    displayCards();
-    displayModals();
-})
-
-catalog = fetch('https://6257ff20e4e0b7314284d524.mockapi.io/wildberries')
-.then((responce) => {
-    return responce.json();
-})
+    .then((responce) => {
+        return responce.json();
+    })
+    .then((body) => {
+        catalog = body;
+        displayCards();
+        displayModals();
+    })
 
 // Поиск по товарам
 const inputSearch = document.querySelector('.search-catalog__input');
@@ -112,7 +107,7 @@ inputSearch.addEventListener('input', () => {
     if (inputSearch.value != '') {
         catalog.forEach((item, index) => {
             if (item.description.toLowerCase().search(inputSearch.value.toLowerCase()) == -1) {
-               list[index].classList.add('hide');
+                list[index].classList.add('hide');
             } else {
                 list[index].classList.remove('hide');
             }
@@ -124,5 +119,62 @@ inputSearch.addEventListener('input', () => {
         });
     };
 })
+
+//Товар в корзину
+
+const items = document.querySelector('.basket__items');
+// const basketContent = document.querySelector('.basket__content'); 
+
+const addBttns = document.querySelectorAll('.goods-card__basket-add');
+const cartProductList = document.querySelector('.basket__items');
+const fullPrice = document.querySelector('.basket__full-price');
+let price = 0;
+
+const priceWithoutSpaces = (str) => String(str).replace(/\s/g, '');
+
+const normalPrice = (str) => String(str).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+
+// 1 Делаем список нажатых кнопок
+// 2 Проходим циклом по списку кнопок
+
+let activeButton = [];
+
+goodsList.addEventListener('click', (e) => {
+    let buttns = document.getElementsByClassName('goods-card__basket-add');
+    let currentTargetId = e.target.id.replace(/addbtn_/g, "");
+    let addItem = '';
+    if (e.target == buttns[currentTargetId - 1]) {
+        catalog.forEach((item) => {
+            if (currentTargetId == item.id) {
+                addItem = `
+                    <div id="itm_${item.id}" class="basket__item">
+                        <div class="item__img" style="background: url(${item.img}) no-repeat center; background-size: cover;"></div>
+                        <div class="item__name">${item.name}</div>
+                        <div class="item__price">${item.price}</div>
+                    </div>
+                `;
+                items.innerHTML += addItem;
+            }
+        })
+    }
+})
+
+const shoppingCart = document.querySelector('.header__shopping-cart');
+const basket = document.querySelector('.basket')
+const basketClose = document.querySelector('.basket__close');
+const basketBody = document.querySelector('.basket__body')
+
+shoppingCart.addEventListener('click', () => {
+    basket.style.display = 'block';
+})
+
+shoppingCart.addEventListener('click', (e) => {
+    if (e.target == basketBody){
+        basket.style.display = 'none';
+    } else if (e.target == basketClose) {
+        basket.style.display = 'none';
+    }
+})
+
 
 
