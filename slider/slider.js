@@ -58,6 +58,7 @@ function fun(){
   function deleteAllBtnClick(){
     let parentId = document.getElementById('cart__product');
     parentId.parentNode.removeChild(parentId);
+    
   }
 
   
