@@ -111,7 +111,7 @@ const inputSearch = document.querySelector('.search-catalog__input');
 inputSearch.addEventListener('input', () => {
     if (inputSearch.value != '') {
         catalog.forEach((item, index) => {
-            if (item.description.search(inputSearch.value) == -1) {
+            if (item.description.toLowerCase().search(inputSearch.value.toLowerCase()) == -1) {
                list[index].classList.add('hide');
             } else {
                 list[index].classList.remove('hide');
