@@ -91,6 +91,7 @@ const closeBasket = () => {
     } else if (event.target == basketClose) {
         basket.style.display = 'none';
     }
+    event.preventDefault();
 }
 // Событие закрытия корзины
 shoppingCart.addEventListener('click', closeBasket)
