@@ -10,6 +10,28 @@ const fullPrice = document.querySelector('.basket__full-priceNum');
 fullPrice.textContent = '0';
 let price = 0;
 
+//localStorage
+const updateStorage = () => {
+    let parent = document.querySelector('.basket__items');
+    let html = parent.innerHTML;
+    let cost = fullPrice.textContent;
+    if (html.length) {
+        localStorage.setItem('products', html);
+        localStorage.setItem('price', cost);
+    } else {
+        localStorage.removeItem('products');
+        localStorage.removeItem('price');
+    }
+}
+
+const initialState = () => {
+    if (localStorage.getItem('products')) {
+        document.querySelector('.basket__items').innerHTML = localStorage.getItem('products');
+        fullPrice.textContent = localStorage.getItem('price');
+    }
+}
+initialState()
+
 // Функция которая достает число из строки
 const priceNum = (str) => parseInt(str.replace(/[^\d]/g, '')); 
 
@@ -31,6 +53,7 @@ function addItems (id) {
             items.innerHTML += addItem;
             price += priceNum(item.price);
             fullPrice.textContent = normalPrice(price);
+            updateStorage()
         }
     })
 }
@@ -77,9 +100,10 @@ const clearBasket = () => {
     items.innerHTML = '';
     price = 0;
     fullPrice.textContent = '0';
+    updateStorage()
 }
 // Событие очистки корзины
 basketClear.addEventListener('click', clearBasket)
 
 export {shoppingCart, basket, basketClose, basketBody, basketClear, items, fullPrice, price, priceNum, normalPrice,
-    addItems, addMain, openBasket, closeBasket, clearBasket}
+    addItems, addMain, openBasket, closeBasket, clearBasket, updateStorage}
