@@ -23,8 +23,9 @@ function showSlides(n) {
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace("active", "");
     }
+    
     slides[slideIndex - 1].style.display = "block";
-    // dots[slideIndex-1].className+= "active";
+    dots[slideIndex - 1].className+= "active";
 }
 
 
@@ -56,11 +57,23 @@ function fun(){
   let deleteAllBtn = document.getElementById('clear_cart');
   deleteAllBtn.addEventListener('click', deleteAllBtnClick);
   function deleteAllBtnClick(){
-    let parentId = document.getElementById('cart__product');
+    let parentId = document.getElementById("cart__product");
+    let parentSum = document.getElementById("cart__sum");
     parentId.parentNode.removeChild(parentId);
+    parentSum.parentNode.removeChild(parentSum);
     
   }
 
+  let parentSum = document.createElement('div');
+  parentSum.id = "cart__sum";
+  parentSum.className = "cart__sum";
+  document.getElementById("parentCartSum").appendChild(parentSum);
+
+  let parentDiv = document.createElement('div');
+  parentDiv.id = "cart__product";
+  document.getElementById("cart__box").appendChild(parentDiv);
+  
+  
   
   let iDiv = document.createElement('div');
   iDiv.id = product.length;
