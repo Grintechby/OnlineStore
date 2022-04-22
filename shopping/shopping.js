@@ -120,71 +120,66 @@ inputSearch.addEventListener('input', () => {
     };
 })
 
-//Товар в корзину
-
-const items = document.querySelector('.basket__items'); 
-const addBttns = document.querySelectorAll('.goods-card__basket-add');
-const cartProductList = document.querySelector('.basket__items');
-const fullPrice = document.querySelector('.basket__full-priceNum');
-let price = 0;
-fullPrice.textContent = '0';
-
-const priceNum = (str) => parseInt(str.replace(/[^\d]/g, '')); // достает число из строки
-
-const normalPrice = (str) => String(str).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '); // возвращает пробелы в цену
-
-//Добавление товара в корзину
-goodsList.addEventListener('click', (e) => {
-    let buttns = document.getElementsByClassName('goods-card__basket-add');
-    let currentTargetId = e.target.id.replace(/addbtn_/g, "");
-    let addItem = '';
-    if (e.target == buttns[currentTargetId - 1]) {
-        catalog.forEach((item) => {
-            if (currentTargetId == item.id) {
-                addItem = `
-                    <div id="itm_${item.id}" class="basket__item">
-                        <div class="item__img" style="background: url(${item.img}) no-repeat center; background-size: contain;"></div>
-                        <div class="item__name">${item.name}/${item.description}</div>
-                        <div class="item__price">${item.price}</div>
-                    </div>
-                `;
-                items.innerHTML += addItem;
-                price += priceNum(item.price);
-                fullPrice.textContent = normalPrice(price);
-            }
-        })
-    }
-})
-//Добавление товара в корзину из окна быстрого просмотра
-modals.addEventListener('click', (e) => {
-    let buttns = document.getElementsByClassName('popup__basket-btn');
-    let currentTargetId = e.target.id.replace(/popbtn_/g, "");
-    let addItem = '';
-    if (e.target == buttns[currentTargetId - 1]) {
-        catalog.forEach((item) => {
-            if (currentTargetId == item.id) {
-                addItem = `
-                    <div id="itm_${item.id}" class="basket__item">
-                        <div class="item__img" style="background: url(${item.img}) no-repeat center; background-size: cover;"></div>
-                        <div class="item__name">${item.name}/${item.description}</div>
-                        <div class="item__price">${item.price}</div>
-                    </div>
-                `;
-                items.innerHTML += addItem;
-            }
-        })
-    }
-})
+//Корзина
 
 const shoppingCart = document.querySelector('.header__shopping-cart');
 const basket = document.querySelector('.basket')
 const basketClose = document.querySelector('.basket__close');
 const basketBody = document.querySelector('.basket__body')
 const basketClear = document.querySelector('.basket__clear');
+const items = document.querySelector('.basket__items'); 
+const fullPrice = document.querySelector('.basket__full-priceNum');
+fullPrice.textContent = '0';
+let price = 0;
+
+// Функция которая достает число из строки
+const priceNum = (str) => parseInt(str.replace(/[^\d]/g, '')); 
+
+// Функция которая возвращает пробелы в цену
+const normalPrice = (str) => String(str).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+
+//Функция добавления строки товара в корзину
+function addItems (id) {
+    let addItem = '';
+    catalog.forEach((item) => {
+        if (id == item.id) {
+            addItem = `
+                <div id="itm_${item.id}" class="basket__item">
+                    <div class="item__img" style="background: url(${item.img}) no-repeat center; background-size: contain;"></div>
+                    <div class="item__name">${item.name}/${item.description}</div>
+                    <div class="item__price">${item.price}</div>
+                </div>
+            `;
+            items.innerHTML += addItem;
+            price += priceNum(item.price);
+            fullPrice.textContent = normalPrice(price);
+        }
+    })
+}
+
+// Добавление товара в корзину из главной страницы
+goodsList.addEventListener('click', (e) => {
+    let buttns = document.getElementsByClassName('goods-card__basket-add');
+    let currentTargetId = e.target.id.replace(/addbtn_/g, "");
+    if (e.target == buttns[currentTargetId - 1]) {
+        addItems(currentTargetId);
+    }
+})
+
+// Добавление товара в корзину из окна быстрого просмотра
+modals.addEventListener('click', (e) => {
+    let buttns = document.getElementsByClassName('popup__basket-btn');
+    let currentTargetId = e.target.id.replace(/popbtn_/g, "");
+    if (e.target == buttns[currentTargetId - 1]) {
+        addItems(currentTargetId);
+    }
+})
+
 // Открытие корзины
 shoppingCart.addEventListener('click', () => {
     basket.style.display = 'block';
 })
+
 // Закрыть корзину
 shoppingCart.addEventListener('click', (e) => {
     if (e.target == basketBody){
@@ -193,6 +188,7 @@ shoppingCart.addEventListener('click', (e) => {
         basket.style.display = 'none';
     }
 })
+
 //Очистка корзины
 basketClear.addEventListener('click', () => {
     items.innerHTML = '';
