@@ -1,8 +1,21 @@
-// Карточки товаров
+//Присваиваем переменной catalog данные с сервера
 let list = [];
+let catalog = [];
+
+fetch('https://6257ff20e4e0b7314284d524.mockapi.io/wildberries')
+    .then((responce) => {
+        return responce.json();
+    })
+    .then((body) => {
+        catalog = body;
+        displayCards();
+        displayModals();
+})
+
+// Карточки товаров
 
 const goodsList = document.querySelector('.goods__list');
-
+//Берет данные с сервера и создает карточку на каждый товар
 function displayCards() {
     let displayCard = '';
     catalog.forEach(function (item, index) {
@@ -12,7 +25,7 @@ function displayCards() {
                     <div class="goods-card__discount">
                         <span>${item.discount}</span>
                     </div>
-                    <button class="goods-card__basket-add">+</button>
+                    <button id="addbtn_${item.id}" class="goods-card__basket-add">+</button>
                     <button id="btn_${item.id}" class="goods-card__quick-view">Быстрый просмотр</button>
                 </div>
                 <div class="goods-card__info">
@@ -35,7 +48,7 @@ function displayCards() {
 
 // Модальные окна к карточкам товаров
 const modals = document.querySelector('.modals');
-
+//Берет данные с сервера и создает модальное окно на каждую карточку товара
 function displayModals() {
     let displayModal = '';
     catalog.forEach(function (item, index) {
@@ -49,7 +62,7 @@ function displayModals() {
                         <img class="popup__img" src="${item.img}" alt="">
                         <div class="basket-price">
                             <span class="popup__description-price">${item.price}</span>
-                            <button class="popup__basket-btn">Добавить в корзину</button>
+                            <button id="popbtn_${item.id}" class="popup__basket-btn">Добавить в корзину</button>
                         </div>
                     </div>
                 </div>
@@ -60,69 +73,35 @@ function displayModals() {
     })
 };
 
-
 const popup = document.getElementsByClassName('popup');
 const popupBody = document.getElementsByClassName('popup__body');
 const popupClose = document.getElementsByClassName('popup__close');
 
-// Закрытие модального окна
-modals.addEventListener('click', (e) => {
-    let closeId = e.target.id.replace(/close_/g, "");
-    let bodyId = e.target.id.replace(/body_/g,"");
-
-    if (e.target == popupBody[bodyId -1]) {
+// Функция закрытия модального окна
+let closeModals = () => {
+    let closeId = event.target.id.replace(/close_/g, "");
+    let bodyId = event.target.id.replace(/body_/g, "");
+    if (event.target == popupBody[bodyId - 1]) {
         popup[bodyId - 1].style.display = 'none';
-    }else if (e.target == popupClose[closeId -1]) {
+    } else if (event.target == popupClose[closeId - 1]) {
         popup[closeId - 1].style.display = 'none';
     }
-    e.preventDefault();
-})
+    event.preventDefault();
+}
+// Событие закрытия модального окна
+modals.addEventListener('click', closeModals)
 
-// Открытие модального окна на быстрый просмотр
-goodsList.addEventListener('click', (e) => {
-    let buttn = document.getElementsByClassName('goods-card__quick-view');
-    let currentTargetId = e.target.id.replace(/btn_/g, "");
-    if (e.target == buttn[currentTargetId - 1]) {
-        popup[currentTargetId-1].style.display = 'block';
+// Функция открытия модального окна на быстрый просмотр
+let openModals = () => {
+    let buttns = document.getElementsByClassName('goods-card__quick-view');
+    let currentTargetId = event.target.id.replace(/btn_/g, "");
+    if (event.target == buttns[currentTargetId - 1]) {
+        popup[currentTargetId - 1].style.display = 'block';
     }
-})
+}
+// Событие открытия модального окна на быстрый просмотр
+goodsList.addEventListener('click', openModals)
 
-// Получение данных с сервера
-let catalog = [];
-
-fetch('https://6257ff20e4e0b7314284d524.mockapi.io/wildberries')
-.then((responce) => {
-    return responce.json();
-})
-.then((body) => {
-    catalog = body;
-    displayCards();
-    displayModals();
-})
-
-catalog = fetch('https://6257ff20e4e0b7314284d524.mockapi.io/wildberries')
-.then((responce) => {
-    return responce.json();
-})
-
-// Поиск по товарам
-const inputSearch = document.querySelector('.search-catalog__input');
-
-inputSearch.addEventListener('input', () => {
-    if (inputSearch.value != '') {
-        catalog.forEach((item, index) => {
-            if (item.description.search(inputSearch.value) == -1) {
-               list[index].classList.add('hide');
-            } else {
-                list[index].classList.remove('hide');
-            }
-        });
-    }
-    else {
-        catalog.forEach((item, index) => {
-            list[index].classList.remove('hide');
-        });
-    };
-})
+export {catalog, list, goodsList, displayCards, modals, displayModals, popup, popupBody, popupClose, closeModals, openModals}
 
 

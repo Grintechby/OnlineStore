@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./header/header.css">
+    <link rel="stylesheet" href="./header/basket.css">
     <link rel="stylesheet" href="./shopping/shopping.css">
     <link rel="stylesheet" href="./shopping/popup.css">
     <link rel="icon" href="https://www.wildberries.ru/favicon.ico" type="image/vnd.microsoft.icon">
@@ -23,6 +24,20 @@
             <div class="header__shopping-cart">
                 <div class="shopping-cart__img"></div>
                 <span class="shopping-cart__text">Корзина</span>
+                <div id="basket" class="basket">
+                    <div class="basket__body">
+                        <div class="basket__content">
+                            <a href="#" id="basket-close" class="basket__close">X</a>
+                            <div class="basket__content-top">
+                                <div class="basket__title">Корзина</div>
+                                <button class="basket__clear">Очистить козину</button>
+                            </div>
+                            <div class="basket__items">
+                            </div>
+                            <div class="basket__full-price">Итого: <span class="basket__full-priceNum"></span> ₽</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -35,8 +50,8 @@
         <div class="modals"></div>
     </section>
 
-<script type="module" src="/shopping/shopping.js"></script>
-<script src="./header/header.js"></script>
+<script type="module" src="./index.js"></script>
+
 </body>
 
 </html>
