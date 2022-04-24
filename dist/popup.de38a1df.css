@@ -1,0 +1,93 @@
+.popup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    color: #fff;
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 10;
+}
+
+.hide {
+    display: none;
+}
+
+.popup__body{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+.popup__content{
+    background-color: #fff;
+    border-radius: 10px;
+    color: black;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+}
+
+.popup__close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+.popup__title{
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 700;
+}
+
+.popup__description {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    justify-content: space-between;
+}
+
+.popup__img {
+    width: 300px;
+}
+
+.basket-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup__description-price {
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.popup__basket-btn {
+    width: 304px;
+    font-size: 16px;
+    line-height: 1.1;
+    font-weight: 700;
+    border: 1px solid #cb11ab;
+    border-radius: 8px;
+    background-color: #cb11ab;
+    color: #fff;
+    padding: 14px 25px 15px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.popup__basket-btn:hover {
+    background-color: #e313bf;
+    border-color: #e313bf;
+}
+
+/*# sourceMappingURL=/popup.de38a1df.css.map */

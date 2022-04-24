@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.e308ff8e.css">
+    <link rel="stylesheet" href="/header.f10928a8.css">
+    <link rel="stylesheet" href="/basket.b3961137.css">
+    <link rel="stylesheet" href="/shopping.4f2f8c87.css">
+    <link rel="stylesheet" href="/popup.de38a1df.css">
+    <link rel="stylesheet" href="/slider.0ba83c67.css">
+    <link rel="icon" href="https://www.wildberries.ru/favicon.ico" type="image/vnd.microsoft.icon">
+    <title>Wildberries – Интернет-магазин модной одежды и обуви</title>
+<script src="/style.e308ff8e.js"></script><script src="/header.f10928a8.js"></script><script src="/basket.b3961137.js"></script><script src="/shopping.4f2f8c87.js"></script><script src="/popup.de38a1df.js"></script><script src="/slider.0ba83c67.js"></script></head>
+<body>
+    <!-- Шапка -->
+    <section class="header">
+        <div class="header__container">
+            <div class="header__logo"></div>
+            <div class="header__search-catalog">
+                <input type="search" class="search-catalog__input" id="" placeholder="Я ищу...">
+            </div>
+            <div class="header__shopping-cart">
+                <div class="shopping-cart__img"></div>
+                <span class="shopping-cart__text">Корзина</span>
+                <div id="basket" class="basket">
+                    <div class="basket__body">
+                        <div class="basket__content">
+                            <a href="#" id="basket-close" class="basket__close">X</a>
+                            <div class="basket__content-top">
+                                <div class="basket__title">Корзина</div>
+                                <button class="basket__clear">Очистить козину</button>
+                            </div>
+                            <div class="basket__items">
+                            </div>
+                            <div class="basket__full-price">Итого: <span class="basket__full-priceNum"></span> ₽</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Слайдер -->
+<div class="slider">
+    <button class="prev" onclick="plusSlides(-1)"> << </button>
+            <div class="mySlide "><img class="slide-img" id="slide-img" src="https://images.wbstatic.net/bners1/big_spring_sale_1904.jpg" alt=""></div>
+            <div class="mySlide "><img class="slide-img" id="slide-img" src="https://images.wbstatic.net/bners1/39394868677.jpg" alt=""></div>
+            <div class="mySlide "><img class="slide-img" id="slide-img" src="https://images.wbstatic.net/bners1/big_fashion_days_1904.jpg" alt=""></div>
+            <div class="mySlide "><img class="slide-img" id="slide-img" src="https://images.wbstatic.net/bners1/big_spring_1904.jpg" alt=""></div>
+
+            <button class="next" onclick="plusSlides(1)"> >> </button>
+    <div class="dots">
+    <span class="dot " onclick="currentSlide(1)"></span>
+    <span class="dot " onclick="currentSlide(2)"></span>
+    <span class="dot " onclick="currentSlide(3)"></span>
+    <span class="dot " onclick="currentSlide(4)"></span>
+    </div>        
+</div>
+<!-- Каталог товаров -->
+    <section class="shopping-catalog">
+        <h2 class="goods__title">Хиты продаж</h2>
+        <ul class="goods__list"></ul>
+        <div class="modals"></div>
+    </section>
+
+<script type="module" src="/src.e31bb0bc.js"></script>
+<script src="/slider.c8f2b58b.js"></script>
+
+</body>
+
+</html>
