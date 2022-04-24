@@ -107,4 +107,4 @@ const clearBasket = () => {
 basketClear.addEventListener('click', clearBasket)
 
 export {shoppingCart, basket, basketClose, basketBody, basketClear, items, fullPrice, price, priceNum, normalPrice,
-    addItems, addMain, openBasket, closeBasket, clearBasket, updateStorage}
+    addItems, addMain, openBasket, closeBasket, clearBasket, updateStorage};

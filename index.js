@@ -4,3 +4,4 @@ import {shoppingCart, basket, basketClose, basketBody, basketClear, items, fullP
     addItems, addMain, openBasket, closeBasket, clearBasket} from './header/shopping_cart.js';
 
 
+
