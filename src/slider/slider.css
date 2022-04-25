@@ -1,4 +1,4 @@
-.slider {
+/* .slider {
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -42,7 +42,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    /* background: url(icon-path); */
+    background: url(icon-path);
     opacity: 0;
 }
 
@@ -195,4 +195,118 @@
     color: #fff;
     background-color: #cb11ab;
     border: 2px solid #cb11ab;
-} 
+}  */
+
+img {
+    width: 100% !important;
+    height: 370px;
+    border-radius: 16px;
+}
+
+.sim-slider {
+    max-width: 1504px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 32px;
+    background-color: white;
+    position: relative;
+}
+
+.sim-slider-list {
+    margin: 8px 0 36px;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+    border-radius: 12px;
+    height: 412px;
+}
+
+.sim-slider-element {
+    width: 100%;
+    height: 370px;
+    transition: opacity 1s ease-in;
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    display: block;
+}
+
+div.sim-slider-arrow-left,
+div.sim-slider-arrow-right {
+    font-size: 0;
+    margin: 0;
+    top: 45%;
+    transform: translate(0, -50%);
+    opacity: .5;
+    position: absolute;
+    vertical-align: middle;
+    width: auto;
+    height: auto;
+    padding: 15px;
+    line-height: 1;
+    background: #fff;
+    border-radius: 100%;
+    border: none;
+    z-index: 4;
+    cursor: pointer;
+    transition: .2s;
+}
+
+div.sim-slider-arrow-left::before, div.sim-slider-arrow-right::before {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url("data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7.361.238a.977.977%200%20011.278%200l7.097%206.377a.755.755%200%20010%201.147.977.977%200%2001-1.278%200L8%201.96%201.542%207.762a.977.977%200%2001-1.277%200%20.755.755%200%20010-1.147L7.36.238z%22%20fill%3D%22%23000%22%2F%3E%3Crect%20width%3D%222%22%20height%3D%2216%22%20rx%3D%221%22%20transform%3D%22matrix(-1%200%200%201%209%200)%22%20fill%3D%22%23000%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+}
+
+div.sim-slider-arrow-left {
+    left: 60px;
+}
+
+.sim-slider-arrow-left::before {
+    transform: rotate(270deg);
+}
+
+div.sim-slider-arrow-right {
+    right: 60px;
+}
+
+.sim-slider-arrow-right::before {
+    transform: rotate(90deg);
+}
+
+div.sim-slider-arrow-left:hover {
+    opacity: 1.0;
+}
+
+div.sim-slider-arrow-right:hover {
+    opacity: 1.0;
+}
+
+div.sim-slider-arrow-left:hover:before, div.sim-slider-arrow-right:hover:before {
+    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7.361.238a.977.977%200%20011.278%200l7.097%206.377a.755.755%200%20010%201.147.977.977%200%2001-1.278%200L8%201.96%201.542%207.762a.977.977%200%2001-1.277%200%20.755.755%200%20010-1.147L7.36.238z%22%20fill%3D%22%23CB11AB%22%2F%3E%3Crect%20width%3D%222%22%20height%3D%2216%22%20rx%3D%221%22%20transform%3D%22matrix(-1%200%200%201%209%200)%22%20fill%3D%22%23CB11AB%22%2F%3E%3C%2Fsvg%3E');
+}
+
+div.sim-slider-dots {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    text-align: center;
+}
+
+span.sim-dot {
+    width: 10px;
+    height: 10px;
+    margin: 5px 7px;
+    padding: 0;
+    display: inline-block;
+    background-color: #BBB;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -24,7 +24,7 @@
 .header__logo {
     width: 240px;
     height: 64px;
-    background-image: url(/img/logo-v1.svg);
+    background-image: url(../img/logo-v1.svg);
     cursor: pointer;
 }
 
@@ -45,7 +45,7 @@
     cursor: pointer;
     outline: 0;
     transition: .3s;
-    background-image: url(/img/search-icon-grey.svg);
+    background-image: url(../img/search-icon-grey.svg);
     background-repeat: no-repeat;
     background-position: 16px;
 

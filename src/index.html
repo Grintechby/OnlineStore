@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
     <link rel="icon" href="https://www.wildberries.ru/favicon.ico" type="image/vnd.microsoft.icon">
     <title>Wildberries – Интернет-магазин модной одежды и обуви</title>
 </head>
+
 <body>
     <!-- Шапка -->
     <section class="header">
@@ -42,35 +44,45 @@
             </div>
         </div>
     </section>
-<!-- Слайдер -->
-<div class="slider">
-    <button class="prev" onclick="plusSlides(-1)"> << </button>
-            <div class="mySlide "><img class="slide-img" id="slide-img"
-                    src="https://images.wbstatic.net/bners1/big_spring_sale_1904.jpg" alt=""></div>
-            <div class="mySlide "><img class="slide-img" id="slide-img"
-                    src="https://images.wbstatic.net/bners1/39394868677.jpg" alt=""></div>
-            <div class="mySlide "><img class="slide-img" id="slide-img"
-                    src="https://images.wbstatic.net/bners1/big_fashion_days_1904.jpg" alt=""></div>
-            <div class="mySlide "><img class="slide-img" id="slide-img"
-                    src="https://images.wbstatic.net/bners1/big_spring_1904.jpg" alt=""></div>
+    <!-- Слайдер -->
+    <div class="sim-slider">
+        <ul class="sim-slider-list">
+          <li><img src="http://pvbk.spb.ru/inc/slider/imgs/no-image.gif" alt="screen"></li> <!-- это экран -->
+          <li class="sim-slider-element"><img src="https://images.wbstatic.net/bners1/big_spring_sale_1904.jpg" alt="0"></li>
+          <li class="sim-slider-element"><img src="https://images.wbstatic.net/bners1/39394868677.jpg" alt="1"></li>
+          <li class="sim-slider-element"><img src="https://images.wbstatic.net/bners1/big_fashion_days_1904.jpg" alt="2"></li>
+          <li class="sim-slider-element"><img src="https://images.wbstatic.net/bners1/big_spring_1904.jpg" alt="3"></li>
+        </ul>
+        <div class="sim-slider-arrow-left"></div>
+        <div class="sim-slider-arrow-right"></div>
+        <div class="sim-slider-dots"></div>
+      </div>
+    <!-- <div class="slider">
+        <button class="prev"><<</button>
 
-            <button class="next" onclick="plusSlides(1)"> >> </button>
-    <div class="dots">
-    <span class="dot " onclick="currentSlide(1)"></span>
-    <span class="dot " onclick="currentSlide(2)"></span>
-    <span class="dot " onclick="currentSlide(3)"></span>
-    <span class="dot " onclick="currentSlide(4)"></span>
-    </div>        
-</div>
-<!-- Каталог товаров -->
+        <div class="mySlide "><img class="slide-img" id="slide-img" src="https://images.wbstatic.net/bners1/big_spring_sale_1904.jpg" alt=""></div>
+        <div class="mySlide "><img class="slide-img" id="slide-img" src="https://images.wbstatic.net/bners1/39394868677.jpg" alt=""></div>
+        <div class="mySlide "><img class="slide-img" id="slide-img" src="https://images.wbstatic.net/bners1/big_fashion_days_1904.jpg" alt=""></div>
+        <div class="mySlide "><img class="slide-img" id="slide-img" src="https://images.wbstatic.net/bners1/big_spring_1904.jpg" alt=""></div>
+
+        <button class="next" onclick="plusSlides(1)"> >> </button>
+        
+        <div class="dots">
+        <span id="sld_1" class="dot "></span>
+        <span id="sld_2" class="dot "></span>
+        <span id="sld_3" class="dot "></span>
+        <span id="sld_4" class="dot "></span>
+        </div>
+    </div> -->
+    <!-- Каталог товаров -->
     <section class="shopping-catalog">
         <h2 class="goods__title">Хиты продаж</h2>
         <ul class="goods__list"></ul>
         <div class="modals"></div>
     </section>
-
-<script type="module" src="./index.js"></script>
-<script src="./slider/slider.js"></script>
+<!-- JS -->
+    <script type="module" src="./index.js"></script>
+    <script src="./slider/slider.js"></script>
 
 </body>
 
